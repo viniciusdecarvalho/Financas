@@ -18,7 +18,5 @@ namespace Financas.Models.DataSource
         {
             base.OnModelCreating(modelBuilder);
         }
-
-        public System.Data.Entity.DbSet<Financas.Models.ViewModel.UsuarioEditViewModel> UsuarioEditViewModels { get; set; }
     }
 }

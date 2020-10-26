@@ -1,5 +1,6 @@
 ﻿using Financas.Models.Dao;
 using Financas.Models.DataSource;
+using Financas.Models.Mapper;
 using Financas.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,19 +26,17 @@ namespace Financas.Controllers
         {
             var usuario = this.usuarioDao.Get(id) ?? new Usuario();
 
-            return View(usuario);
+            var model = usuario.Convert<Usuario, UsuarioEditViewModel>();
+
+            return View(model);
         }
 
+        [HttpPost]
         public ActionResult Edit(UsuarioEditViewModel model)
         {
             if (ModelState.IsValid)
             {
-                Usuario usuario = new Usuario 
-                { 
-                    Id = model.Id, 
-                    Nome = model.Nome, 
-                    Email = model.Email 
-                };
+                Usuario usuario = model.Convert<UsuarioEditViewModel, Usuario>();
 
                 this.usuarioDao.Salvar(usuario);
                 return RedirectToAction(nameof(Index));

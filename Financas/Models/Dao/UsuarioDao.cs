@@ -29,6 +29,7 @@ namespace Financas.Models.Dao
         public void Salvar(Usuario usuario)
         {
             this.context.Usuarios.AddOrUpdate(usuario);
+            this.context.SaveChanges();
         }
     }
 }

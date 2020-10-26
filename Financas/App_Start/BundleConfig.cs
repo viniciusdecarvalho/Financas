@@ -8,25 +8,33 @@ namespace Financas
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.unobtrusive-ajax.js"
-                        ));
+            bundles.Add(
+                new StyleBundle("~/bundles/style")
+                    .Include("~/Content/vendor/bootstrap/css/bootstrap.css")
+                    .Include("~/Content/vendor/fontawesome-free/css/all.css")
+                    .Include("~/Content/css/sb-admin-2.css")
+            );
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(
+                new ScriptBundle("~/bundles/script")
+                    .Include("~/Content/vendor/jquery/jquery.js")
+                    .Include("~/Content/vendor/jquery/jquery.validate.js")
+                    .Include("~/Content/vendor/jquery/jquery.unobtrusive-ajax.js")
+                    .Include("~/Content/vendor/jquery/jquery.validate.unobtrusive.js")
+                    .Include("~/Content/vendor/jquery/jquery.validate-vsdoc.js")
+                    .Include("~/Content/vendor/bootstrap/js/bootstrap.js")
+            );
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(
+                new StyleBundle("~/bundles/style/datatable")
+                    .Include("~/Content/vendor/datatables/dataTables.bootstrap4.css")
+            );
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(
+                new ScriptBundle("~/bundles/script/datatable")
+                    .Include("~/Content/vendor/datatables/jquery.dataTables.js")
+                    .Include("~/Content/vendor/datatables/dataTables.bootstrap4.js")
+            );
         }
     }
 }
